@@ -60,9 +60,13 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        body {
+        /* Fix Mobile Horizontal Scroll Glitch */
+        html, body {
             background-color: #FAF9F6;
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            position: relative;
         }
 
         /* Enhanced Diya Flame */
@@ -195,10 +199,10 @@
     </div>
 
     <!-- MAIN WEBSITE CONTENT -->
-    <div id="main-content" class="opacity-0 relative">
+    <div id="main-content" class="opacity-0 relative overflow-x-hidden w-full">
 
         <!-- 2. HERO WELCOME SECTION -->
-        <section class="h-screen relative flex items-center justify-center overflow-hidden parallax-bg" 
+        <section class="h-screen relative flex items-center justify-center overflow-hidden parallax-bg w-full" 
                  style="background-image: linear-gradient(to bottom, rgba(10,5,5,0.4), rgba(43,5,5,0.8)), url('assets/1.jpg');">
             
             <div class="absolute inset-0 bg-black/20"></div>
@@ -229,13 +233,13 @@
         </section>
 
         <!-- BRANDING STRIP -->
-        <div class="bg-maroon-dark py-4 md:py-6 text-center border-b border-gold/10 relative overflow-hidden">
+        <div class="bg-maroon-dark py-4 md:py-6 text-center border-b border-gold/10 relative overflow-hidden w-full">
             <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-30"></div>
             <p class="text-gold text-[8px] sm:text-[10px] md:text-xs tracking-[0.4em] md:tracking-[0.6em] uppercase font-serif px-2">NYOTA — Cinematic Memory Experience</p>
         </div>
 
         <!-- 3. OUR STORY (With Petals) -->
-        <section class="py-16 md:py-24 px-4 md:px-20 bg-ivory text-center relative overflow-hidden">
+        <section class="py-16 md:py-24 px-4 md:px-20 bg-ivory text-center relative overflow-hidden w-full">
             <!-- Mandala Background -->
             <div class="absolute -left-10 md:-left-20 top-10 md:top-20 w-64 md:w-96 h-64 md:h-96 bg-[url('https://www.transparenttextures.com/patterns/black-linen.png')] opacity-5 rounded-full animate-spin-slow pointer-events-none"></div>
 
@@ -255,14 +259,14 @@
         </section>
 
         <!-- 4. COUNTDOWN TIMER -->
-        <section class="py-16 md:py-20 bg-[#F5F0E6] relative border-y border-maroon/5">
+        <section class="py-16 md:py-20 bg-[#F5F0E6] relative border-y border-maroon/5 overflow-hidden w-full">
             <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 md:gap-20 text-center gs-reveal" id="countdown">
                 <!-- JS Populated -->
             </div>
         </section>
 
         <!-- 5. WEDDING JOURNEY (TIMELINE) -->
-        <section class="py-20 md:py-32 bg-maroon-dark text-ivory relative overflow-hidden">
+        <section class="py-20 md:py-32 bg-maroon-dark text-ivory relative overflow-hidden w-full">
             <!-- Petals Canvas -->
             <canvas id="petals-canvas" class="absolute inset-0 pointer-events-none z-0 opacity-40"></canvas>
             
@@ -353,11 +357,11 @@
         </section>
 
         <!-- 6. FAMILY & BLESSINGS (3D Tilt Section) -->
-        <section class="py-16 md:py-24 bg-ivory text-center relative">
+        <section class="py-16 md:py-24 bg-ivory text-center relative overflow-hidden w-full">
             <h2 class="text-3xl font-serif text-maroon mb-10 md:mb-16 gs-reveal">The Pillars of Strength</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto px-6">
                 <!-- Groom Side -->
-                <div class="p-6 md:p-8 border border-maroon/10 bg-white shadow-lg relative tilt-card" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                <div class="p-6 md:p-8 border border-maroon/10 bg-white shadow-lg relative tilt-card gs-reveal-left" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
                     <div class="absolute top-4 left-4 w-6 h-6 md:w-8 md:h-8 border-t border-l border-gold"></div>
                     <div class="absolute bottom-4 right-4 w-6 h-6 md:w-8 md:h-8 border-b border-r border-gold"></div>
                     <p class="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-2 md:mb-3">Groom's Parents</p>
@@ -365,7 +369,7 @@
                     <p class="font-sans text-xs text-gray-500 italic">"Welcoming a daughter, not just a bride."</p>
                 </div>
                 <!-- Bride Side -->
-                <div class="p-6 md:p-8 border border-maroon/10 bg-white shadow-lg relative tilt-card" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                <div class="p-6 md:p-8 border border-maroon/10 bg-white shadow-lg relative tilt-card gs-reveal-right" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
                     <div class="absolute top-4 left-4 w-6 h-6 md:w-8 md:h-8 border-t border-l border-gold"></div>
                     <div class="absolute bottom-4 right-4 w-6 h-6 md:w-8 md:h-8 border-b border-r border-gold"></div>
                     <p class="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-2 md:mb-3">Bride's Parents</p>
@@ -376,14 +380,14 @@
         </section>
 
         <!-- 7. PHOTO GALLERY PREVIEW -->
-        <section class="py-16 md:py-20 bg-[#1a1a1a]">
+        <section class="py-16 md:py-20 bg-[#1a1a1a] overflow-hidden w-full">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-10 md:mb-16 gs-reveal">
                     <h2 class="text-3xl font-serif text-gold">Memory Lane</h2>
                     <p class="text-gray-400 mt-2 md:mt-3 font-sans text-xs md:text-sm tracking-wide">Captured moments leading to forever</p>
                 </div>
                 <!-- Layout -->
-                <div class="flex flex-col md:grid md:grid-cols-4 gap-4 md:h-[600px]">
+                <div class="flex flex-col md:grid md:grid-cols-4 gap-4 md:h-[600px] gs-reveal">
                     
                     <div class="h-64 md:h-auto md:col-span-2 md:row-span-2 relative overflow-hidden group cursor-pointer rounded-sm">
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors z-10 duration-700"></div>
@@ -415,7 +419,7 @@
         </section>
 
         <!-- 8. BLESSINGS MARQUEE -->
-        <section class="py-16 md:py-24 bg-ivory overflow-hidden relative border-b border-maroon/10">
+        <section class="py-16 md:py-24 bg-ivory overflow-hidden relative border-b border-maroon/10 w-full">
             <h2 class="text-center text-3xl font-serif text-maroon mb-10 md:mb-16 gs-reveal">Words of Love</h2>
             
             <div class="flex space-x-6 md:space-x-12 animate-marquee whitespace-nowrap overflow-x-auto pb-8 md:pb-12 px-4 no-scrollbar" style="scrollbar-width: none;">
@@ -451,7 +455,7 @@
         </section>
 
         <!-- 9. RSVP & LOGISTICS -->
-        <section class="py-16 md:py-24 bg-maroon-dark text-ivory relative">
+        <section class="py-16 md:py-24 bg-maroon-dark text-ivory relative overflow-hidden w-full">
             <div class="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-12 md:gap-20">
                 
                 <!-- Info Side -->
@@ -548,7 +552,7 @@
         </section>
 
         <!-- 10. SHARE -->
-        <section class="py-12 md:py-16 bg-ivory text-center border-t border-maroon/5">
+        <section class="py-12 md:py-16 bg-ivory text-center border-t border-maroon/5 overflow-hidden w-full">
             <button onclick="shareViaWhatsapp()" class="group bg-white border border-green-600 text-green-600 px-6 py-2 md:px-8 md:py-3 rounded-full hover:bg-green-600 hover:text-white transition-all duration-300 flex items-center justify-center mx-auto gap-2 md:gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                 <i class="fab fa-whatsapp text-lg md:text-xl"></i> 
                 <span class="font-medium tracking-wide text-sm md:text-base">Share Invitation</span>
@@ -556,7 +560,7 @@
         </section>
 
         <!-- 11. CLOSING SCENE (Starry Night) -->
-        <section class="h-screen bg-[#050505] relative flex items-center justify-center text-center overflow-hidden">
+        <section class="h-screen bg-[#050505] relative flex items-center justify-center text-center overflow-hidden w-full">
             <!-- Canvas for Stars -->
             <canvas id="star-canvas" class="absolute inset-0 z-0"></canvas>
             
@@ -803,10 +807,10 @@
         }
 
         // --- 6. STAR CANVAS (Closing) ---
-        // (Similar to previous, but simpler star field)
+        // Changed innerWidth to clientWidth to prevent vertical scrollbar pushing layout
         const starCanvas = document.getElementById('star-canvas');
         const sCtx = starCanvas.getContext('2d');
-        starCanvas.width = window.innerWidth;
+        starCanvas.width = document.body.clientWidth;
         starCanvas.height = window.innerHeight;
 
         const stars = Array(200).fill().map(() => ({
@@ -853,7 +857,7 @@
         }
 
         window.addEventListener('resize', () => {
-            starCanvas.width = window.innerWidth;
+            starCanvas.width = document.body.clientWidth;
             starCanvas.height = window.innerHeight;
         });
 
